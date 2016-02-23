@@ -4,14 +4,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaxiDataProvider.Entities;
+using System.Data.SqlClient;
+using System.Configuration;
+using Utils;
 
 namespace TaxiDataProvider
 {
     public class AdoNetTaxiDataRepository : ITaxiDataRepository
     {
+        private readonly string _dataBaseName;
+        private readonly string _connectionString;
+
+        public AdoNetTaxiDataRepository()
+        {
+            _dataBaseName = "TaxiDatabase";
+            _connectionString = String.Empty;
+            try
+            {
+                _connectionString = System.Web.Configuration.WebConfigurationManager.ConnectionStrings[_dataBaseName].ConnectionString;
+            }
+            catch (Exception exc)
+            {
+                Logger.Error(exc);
+                
+            }            
+            
+        }
+
+
+
         public IQueryable<Car> GetAllCars()
         {
             IQueryable<Car> cars = null;
+
+            if (_connectionString == String.Empty)
+            {
+                
+            }
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+            {
+
+            }
             return cars;
         }
 

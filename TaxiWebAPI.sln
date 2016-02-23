@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiWebAPI", "TaxiWebAPI\TaxiWebAPI.csproj", "{28508988-1211-496D-8A06-7C16787A7AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiDataProvider", "DataProvider\TaxiDataProvider.csproj", "{BBE0CD62-21C5-499E-925F-331CC8ED86E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Logger\Utils.csproj", "{215B009F-80E4-477D-A145-9907FA635AD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28508988-1211-496D-8A06-7C16787A7AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28508988-1211-496D-8A06-7C16787A7AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28508988-1211-496D-8A06-7C16787A7AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28508988-1211-496D-8A06-7C16787A7AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE0CD62-21C5-499E-925F-331CC8ED86E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE0CD62-21C5-499E-925F-331CC8ED86E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE0CD62-21C5-499E-925F-331CC8ED86E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE0CD62-21C5-499E-925F-331CC8ED86E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{215B009F-80E4-477D-A145-9907FA635AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{215B009F-80E4-477D-A145-9907FA635AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{215B009F-80E4-477D-A145-9907FA635AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{215B009F-80E4-477D-A145-9907FA635AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
