@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxiDataProvider.Entities;
+using TaxiDataProvider.EntitiesAdoNet;
 
 namespace TaxiDataProvider
 {
     public interface ITaxiDataRepository
     {
-        IQueryable<Car> GetAllCars();
+        List<Car> GetAllCars();
 
         Car GetCar(int id);
                 
-        IQueryable<Driver> GetAllDrivers();
+        List<Driver> GetAllDrivers();
 
         Driver GetDriver(int id);
 
-        IQueryable<Passenger> GetAllPassengers();
+        List<Passenger> GetAllPassengers();
 
         Passenger GetPassenger(int id);
 
-        IQueryable<Order> GetAllOrders();
+        List<Order> GetAllOrders();
 
         Order GetOrder(int id);        
 

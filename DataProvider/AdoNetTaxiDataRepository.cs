@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxiDataProvider.Entities;
+using TaxiDataProvider.EntitiesAdoNet;
 using System.Data.SqlClient;
+using System.Data.Linq;
 using System.Configuration;
 using Utils;
 
@@ -31,34 +32,91 @@ namespace TaxiDataProvider
             
         }
 
-
-
-        public IQueryable<Car> GetAllCars()
+        public bool AddCar(Car car)
         {
-            IQueryable<Car> cars = null;
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return false;
 
-            if (_connectionString == String.Empty)
+            using (TaxiDataBaseContext taxiDatabaseContext = new TaxiDataBaseContext(new SqlConnection(_connectionString)))
             {
+                taxiDatabaseContext.Cars.InsertOnSubmit(car);
+
+                bool result = false;
+
+                try
+                {
+                    taxiDatabaseContext.SubmitChanges();
+                    result = true;
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error(exc);
+                    result = false;
+                }               
+
+                return result;
+
+            }
+
+            
+        }
+
+        public List<Car> GetAllCars()
+        {
+
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (TaxiDataBaseContext taxiDatabaseContext = new TaxiDataBaseContext(new SqlConnection(_connectionString)))
+            {
+                try
+                {
+                    var cars = taxiDatabaseContext.GetTable<Car>().ToList<Car>();
+                    return cars;
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error(exc);
+                    return null;
+                }
                 
-            }
 
-            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
-            {
+            }   
 
-            }
-            return cars;
         }
 
         public Car GetCar(int id)
         {
-            Car car = null;
+         
 
-            return car;
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (TaxiDataBaseContext taxiDatabaseContext = new TaxiDataBaseContext(new SqlConnection(_connectionString)))
+            {
+                try
+                {
+                    Car car = taxiDatabaseContext.GetTable<Car>().Where<Car>(c => c.Id == id).First();
+                    return car;
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error(exc);
+                    return null;
+                }
+
+            }
+
+         
         }
 
-        public IQueryable<Driver> GetAllDrivers()
+        public List<Driver> GetAllDrivers()
         {
-            IQueryable<Driver> drivers = null;
+            List<Driver> drivers = null;
+
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+                       
 
             return drivers;
         }
@@ -67,12 +125,24 @@ namespace TaxiDataProvider
         {
             Driver driver = null;
 
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            
             return driver;
         }
 
-        public IQueryable<Passenger> GetAllPassengers()
+        public List<Passenger> GetAllPassengers()
         {
-            IQueryable<Passenger> passengers = null;
+            List<Passenger> passengers = null;
+
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+            {
+
+            }
 
             return passengers;
 
@@ -82,19 +152,45 @@ namespace TaxiDataProvider
         {
             Passenger passenger = null;
 
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+            {
+
+            }
+
             return passenger;
 
         }
 
-        public IQueryable<Order> GetAllOrders()
+        public List<Order> GetAllOrders()
         {
-            IQueryable<Order> orders = null;
+            List<Order> orders = null;
+
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+            {
+
+            }
+
             return orders;
         }
 
         public Order GetOrder(int id)
         {
             Order order = null;
+
+            if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
+                return null;
+
+            using (SqlConnection sqlConn = new SqlConnection(_connectionString))
+            {
+
+            }
+
             return order;
         }
     }

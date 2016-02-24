@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,12 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdoNetTaxiDataRepository.cs" />
-    <Compile Include="Entities\Car.cs" />
-    <Compile Include="Entities\Driver.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\Passenger.cs" />
+    <Compile Include="EntitiesAdoNet\Car.cs" />
+    <Compile Include="EntitiesAdoNet\Driver.cs" />
+    <Compile Include="EntitiesAdoNet\DriverInCar.cs" />
+    <Compile Include="EntitiesAdoNet\Order.cs" />
+    <Compile Include="EntitiesAdoNet\Passenger.cs" />
     <Compile Include="ITaxiDataRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaxiDataBaseContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Logger\Utils.csproj">
