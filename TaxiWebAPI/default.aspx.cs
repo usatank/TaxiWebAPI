@@ -22,7 +22,15 @@ namespace TaxiWebAPI
             {
                 Response.Write("Car: " + car.Id + " " + car.Brand + " " + car.Model + " " + car.Number + "<br />");
             }
-            
+
+            int id = 1;
+            var car1 = repo.GetCar(id);
+
+            Response.Write("Car with id " + id.ToString() + " " + car1.Brand + " " + car1.Model + " " + car1.Number + "<br />");
+            id = 2;
+            car1 = repo.GetCar(id);
+            Response.Write("Car with id " + id.ToString() + " " + car1.Brand + " " + car1.Model + " " + car1.Number + "<br />");
+
         }
     }
 }

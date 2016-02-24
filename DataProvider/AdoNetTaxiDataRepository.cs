@@ -86,8 +86,7 @@ namespace TaxiDataProvider
         }
 
         public Car GetCar(int id)
-        {
-         
+        {        
 
             if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
                 return null;
@@ -112,24 +111,44 @@ namespace TaxiDataProvider
 
         public List<Driver> GetAllDrivers()
         {
-            List<Driver> drivers = null;
-
             if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
                 return null;
-                       
 
-            return drivers;
+            using (TaxiDataBaseContext taxiDataBaseContext = new TaxiDataBaseContext(new SqlConnection(_connectionString)))
+            {
+                try
+                {
+                    var drivers = taxiDataBaseContext.GetTable<Driver>().ToList<Driver>();
+                    return drivers;
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error(exc);
+                    return null;
+                }
+                
+            }
+                
         }
 
         public Driver GetDriver(int id)
         {
-            Driver driver = null;
-
             if (StringUtil.NullOrEmtpyOrWhitespace(_connectionString))
                 return null;
 
-            
-            return driver;
+            using (TaxiDataBaseContext dataBaseContext = new TaxiDataBaseContext(new SqlConnection(_connectionString)))
+            {
+                try
+                {
+                    Driver driver = dataBaseContext.GetTable<Driver>().Where<Driver>(d => d.Id == id).First();
+                    return driver;
+                }
+                catch (Exception exc)
+                {
+                    Logger.Error(exc);
+                    return null;
+                }
+            }
         }
 
         public List<Passenger> GetAllPassengers()
