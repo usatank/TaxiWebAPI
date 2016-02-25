@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiDataProvider", "DataPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Logger\Utils.csproj", "{215B009F-80E4-477D-A145-9907FA635AD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTests", "XUnitTests\XUnitTests.csproj", "{F04196E8-9449-43E8-910D-504DB44C536E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{215B009F-80E4-477D-A145-9907FA635AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{215B009F-80E4-477D-A145-9907FA635AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{215B009F-80E4-477D-A145-9907FA635AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04196E8-9449-43E8-910D-504DB44C536E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04196E8-9449-43E8-910D-504DB44C536E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04196E8-9449-43E8-910D-504DB44C536E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04196E8-9449-43E8-910D-504DB44C536E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

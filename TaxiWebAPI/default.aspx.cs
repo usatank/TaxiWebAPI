@@ -83,9 +83,9 @@ namespace TaxiWebAPI
             var order2 = repo.GetOrder(id);
             Response.Write("Order with id " + id.ToString() + ": " + order2.Address + " " + order2.DateAndTime.ToString() + " " + order2.Location + " " + order2.PassengerId + "<br />");
 
-            repo.AddDriverInCar(new DriverInCar { Address = "Peremogy, 50", CarId = 2, DriverId = 1, Location = "50.456651, 30.444473" });
+            //repo.AddDriverInCar(new DriverInCar { Address = "Peremogy, 50", CarId = 2, DriverId = 1, Location = "50.456651, 30.444473" });
 
-            //var driversInCars = repo.GetAllDriversInCars();
+            var driversInCars = repo.GetAllDriversInCars();
 
             foreach (var driverInCar in driversInCars)
             {
