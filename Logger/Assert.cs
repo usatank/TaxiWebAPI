@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 namespace Utils
 {
-    public static class StringUtil
+    public static class Assert
     {
-        public static bool NullOrEmtpy(string str)
+        public static bool IsNull(object obj)
+        {
+            if (obj == null)
+            {
+                Logger.Error("Object is null \n" + Environment.StackTrace);
+                return true;
+            }
+
+            return false;
+        }
+        public static bool IsNullOrEmtpy(string str)
         {
             if (String.IsNullOrEmpty(str))
             {
@@ -19,7 +29,18 @@ namespace Utils
             return false;
         }
 
-        public static bool NullOrEmtpyOrWhitespace(string str)
+        public static bool IsPositive(int i)
+        {
+            if (i <= 0)
+            {
+                Logger.Error("Value is not positive \n" + Environment.StackTrace);
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsNullOrEmtpyOrWhitespace(string str)
         {
             if (String.IsNullOrEmpty(str) || String.IsNullOrWhiteSpace(str))
             {

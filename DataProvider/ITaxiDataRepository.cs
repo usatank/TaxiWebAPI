@@ -33,5 +33,11 @@ namespace TaxiDataProvider
 
         bool AddOrder(Order order);
 
+        List<DriverInCar> GetAllDriversInCars();
+
+        DriverInCar GetDriverInCar(int id);
+
+        bool AddDriverInCar(DriverInCar driverInCar);
+
     }
 }

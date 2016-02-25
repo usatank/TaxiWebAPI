@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdoNetTaxiDataRepository.cs" />
+    <Compile Include="Linq2SqlTaxiDataRepository.cs" />
     <Compile Include="EntitiesAdoNet\Car.cs" />
     <Compile Include="EntitiesAdoNet\Driver.cs" />
     <Compile Include="EntitiesAdoNet\DriverInCar.cs" />

@@ -14,7 +14,7 @@ namespace TaxiWebAPI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            AdoNetTaxiDataRepository repo = new AdoNetTaxiDataRepository();
+            Linq2SqlTaxiDataRepository repo = new Linq2SqlTaxiDataRepository();
             //repo.AddCar(new Car { Brand = "Kia", Model = "Cerato", Number = "AA0802AH" });
             
             var cars = repo.GetAllCars();
