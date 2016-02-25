@@ -49,10 +49,12 @@ namespace TaxiDataProvider.EntitiesAdoNet
         public int PassengerId
         {
             get { return this._passengerId; }
-            private set { this._passengerId = value; }
+            set { this._passengerId = value; }
         }
         
-        public Passenger Passenger { get; set; }
+
+        //check - whether it is necessary?
+        //public Passenger Passenger { get; set; }
        
     }
 }

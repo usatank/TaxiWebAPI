@@ -48,7 +48,7 @@ namespace TaxiWebAPI.Models
                 Address = order.Address,
                 DateAndTime = order.DateAndTime,
                 Location = order.Location,
-                Passenger = Create(order.Passenger)
+                //Passenger = Create(order.Passenger)
             };
 
         }
