@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using TaxiDataProvider;
 using System.Net.Http;
-using TaxiDataProvider.EntitiesAdoNet;
+using TaxiDataProvider.EntitiesLinq2Sql;
 
 namespace TaxiWebAPI.Models
 {

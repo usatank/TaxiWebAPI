@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Linq;
 using System.Data;
-using TaxiDataProvider.EntitiesAdoNet;
+using TaxiDataProvider.EntitiesLinq2Sql;
 
 namespace TaxiDataProvider
 {

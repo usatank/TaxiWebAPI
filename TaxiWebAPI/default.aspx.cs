@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TaxiDataProvider;
-using TaxiDataProvider.EntitiesAdoNet;
+using TaxiDataProvider.EntitiesLinq2Sql;
 using System.Data.Linq;
 
 namespace TaxiWebAPI

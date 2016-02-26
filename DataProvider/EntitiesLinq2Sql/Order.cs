@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 
-namespace TaxiDataProvider.EntitiesAdoNet
+namespace TaxiDataProvider.EntitiesLinq2Sql
 {
     [Table(Name = "Orders")]
-    public class Order
+    public class Order : IDisposable
     {
         private int _id;
         [Column(IsPrimaryKey = true, IsDbGenerated = true, Name = "Id", Storage = "_id")]
@@ -51,10 +51,20 @@ namespace TaxiDataProvider.EntitiesAdoNet
             get { return this._passengerId; }
             set { this._passengerId = value; }
         }
-        
+
 
         //check - whether it is necessary?
         //public Passenger Passenger { get; set; }
-       
+        
+            //for testing purposes
+        public Order()
+        {
+            Id = 1;
+        }
+
+        public void Dispose()
+        {
+            //for testing purposes
+        }
     }
 }

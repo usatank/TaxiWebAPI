@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxiDataProvider.EntitiesAdoNet;
+using TaxiDataProvider.EntitiesLinq2Sql;
 using System.Data.SqlClient;
 using System.Data.Linq;
 using System.Configuration;
@@ -11,7 +11,7 @@ using Utils;
 
 namespace TaxiDataProvider
 {
-    public class Linq2SqlTaxiDataRepository : ITaxiDataRepository
+    public class Linq2SqlTaxiDataRepository : ITaxiDataRepository, IDisposable
     {
         private readonly string _dataBaseName;
         private readonly string _connectionString;
@@ -360,6 +360,10 @@ namespace TaxiDataProvider
                     return false;
                 }
             }
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

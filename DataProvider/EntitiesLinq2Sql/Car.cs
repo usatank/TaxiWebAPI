@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 
-namespace TaxiDataProvider.EntitiesAdoNet
+namespace TaxiDataProvider.EntitiesLinq2Sql
 {
     [Table (Name = "Cars")]
-    public class Car
+    public class Car : IDisposable
     {        
         private int _id;
 
@@ -45,6 +45,17 @@ namespace TaxiDataProvider.EntitiesAdoNet
         {
             get { return this._number; }
             set { this._number = value; }
+        }
+
+        //for testing purposes
+        public Car()
+        {
+            Id = 1;
+        }
+
+        public void Dispose()
+        {
+            //for testing purposes
         }
 
 
