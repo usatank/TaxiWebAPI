@@ -63,5 +63,29 @@ namespace XUnitTests.TaxiDataProviderTests
             _fixture.Sut.PhoneNumber = value;
             Assert.Equal(expected, _fixture.Sut.PhoneNumber);
         }
+
+        [Fact]
+        public void EqualsShouldReturnTrue()
+        {
+            Passenger p1 = new Passenger() { Name = "Andrii", PhoneNumber = "0991234567"};
+            Passenger p2 = new Passenger() { Name = "Andrii", PhoneNumber = "0991234567" };
+
+            Assert.True(p1.Equals(p2));
+            Assert.True(p1.Equals(p1));
+            Assert.True(p2.Equals(p1));
+            Assert.True(p2.Equals(p2));
+        }
+
+        [Fact]
+        public void EqualsShouldReturnFalse()
+        {
+            Passenger p1 = new Passenger() { Name = "Andrii", PhoneNumber = "0991234567" };
+            Passenger p2 = new Passenger() { Name = "Sergii", PhoneNumber = "0991234567" };
+            Passenger p3 = new Passenger() { Name = "Andrii", PhoneNumber = "0992234567" };
+
+            Assert.False(p1.Equals(p2));
+            Assert.False(p1.Equals(p3));
+        }
+
     }
 }

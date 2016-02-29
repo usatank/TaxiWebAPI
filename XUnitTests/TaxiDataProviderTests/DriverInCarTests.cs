@@ -79,5 +79,30 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.Equal(expected, _fixture.Sut.Location);
         }
 
+        [Fact]
+        public void EqualsShouldReturnTrue()
+        {
+            DriverInCar driverInCar1 = new DriverInCar() { Address = "Peremogy, 50", CarId = 1, DriverId = 1, Location = "50.456487, 30.444342" };
+            DriverInCar driverInCar2 = new DriverInCar() { Address = "Peremogy, 50", CarId = 1, DriverId = 1, Location = "50.456487, 30.444342" };
+
+            Assert.True(driverInCar1.Equals(driverInCar2));
+            Assert.True(driverInCar2.Equals(driverInCar1));
+            Assert.True(driverInCar1.Equals(driverInCar1));
+            Assert.True(driverInCar2.Equals(driverInCar2));
+
+        }
+
+        [Fact]
+        public void EqualsShouldReturnFalse()
+        {
+            DriverInCar driverInCar1 = new DriverInCar() { Address = "Peremogy, 50", CarId = 1, DriverId = 1, Location = "50.456487, 30.444342" };
+            DriverInCar driverInCar2 = new DriverInCar() { Address = "Peremogy, 51", CarId = 1, DriverId = 1, Location = "50.456487, 30.444342" };
+            DriverInCar driverInCar3 = new DriverInCar() { Address = "Peremogy, 50", CarId = 2, DriverId = 1, Location = "50.456487, 30.444342" };
+            DriverInCar driverInCar4 = new DriverInCar() { Address = "Peremogy, 50", CarId = 1, DriverId = 2, Location = "50.456488, 30.444342" };
+
+            Assert.False(driverInCar1.Equals(driverInCar2));
+            Assert.False(driverInCar1.Equals(driverInCar3));
+            Assert.False(driverInCar1.Equals(driverInCar4));
+        }
     }
 }

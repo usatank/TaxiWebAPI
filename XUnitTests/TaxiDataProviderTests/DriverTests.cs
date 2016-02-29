@@ -83,6 +83,32 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.Equal(expected, _fixture.Sut.HomeAddress);
         }
 
+        [Fact]
+        public void EqualsShoulreturnTrue()
+        {
+            Driver d1 = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+            Driver d2 = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+
+            Assert.True(d1.Equals(d2));
+            Assert.True(d2.Equals(d1));
+            Assert.True(d1.Equals(d1));
+            Assert.True(d2.Equals(d2));
+        }
+
+        [Fact]
+        public void EqualsShouldReturnFalse()
+        {
+            Driver d1 = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+            Driver d2 = new Driver() { FirstName = "Serhii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+            Driver d3 = new Driver() { FirstName = "Andrii", LastName = "Petrov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+            Driver d4 = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 15", PhoneNumber = "0661234567" };
+            Driver d5 = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234577" };
+
+            Assert.False(d1.Equals(d2));
+            Assert.False(d1.Equals(d3));
+            Assert.False(d1.Equals(d4));
+            Assert.False(d1.Equals(d5));
+        }
     }
 
 

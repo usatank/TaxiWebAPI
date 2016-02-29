@@ -44,13 +44,21 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
         public string Number
         {
             get { return this._number; }
-            set { this._number = value; }
+            set { this._number = value.Trim(' '); }
         }
 
         //for testing purposes
         public Car()
         {
             Id = 1;
+        }
+
+        public bool Equals(Car car2)
+        {
+            return (this.Id == car2.Id &&
+                    this.Brand == car2.Brand &&
+                    this.Model == car2.Model &&
+                    this.Number == car2.Number);
         }
 
         public void Dispose()

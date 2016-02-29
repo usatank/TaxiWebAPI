@@ -70,6 +70,30 @@ namespace XUnitTests.TaxiDataProviderTests
             _fixture.Sut.Number = value;
             Assert.Equal(expected, _fixture.Sut.Number);
         }
+
+        [Fact]
+        public void EqualsShouldReturnTrue()
+        {
+            Car car1 = new Car() { Brand = "Lifan", Model = "620", Number = "AA2345CH" };
+            Car car2 = new Car() { Brand = "Lifan", Model = "620", Number = "AA2345CH" };
+            Assert.True(car1.Equals(car2));
+            Assert.True(car2.Equals(car1));
+            Assert.True(car1.Equals(car1));
+            Assert.True(car2.Equals(car2));
+        }
+
+        [Fact]
+        public void EqualShouldReturnFalse()
+        {
+            Car car1 = new Car() { Brand = "Lifan", Model = "620", Number = "AA2345CH" };
+            Car car2 = new Car() { Brand = "Lifan1", Model = "620", Number = "AA2345CH" };
+            Car car3 = new Car() { Brand = "Lifan", Model = "6201", Number = "AA2345CH" };
+            Car car4 = new Car() { Brand = "Lifan", Model = "620", Number = "AA5345CH" };
+            Assert.False(car1.Equals(car2));
+            Assert.False(car1.Equals(car3));
+            Assert.False(car1.Equals(car3));
+            Assert.False(car1.Equals(car4));            
+        }
         
     }
 }

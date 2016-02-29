@@ -46,6 +46,13 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
             Id = 1;
         }
 
+        public bool Equals(Passenger passenger2)
+        {
+            return (this.Id == passenger2.Id &&
+                    this.Name == passenger2.Name &&
+                    this.PhoneNumber == passenger2.PhoneNumber);
+        }
+
         public void Dispose()
         {
             //for testing purposes

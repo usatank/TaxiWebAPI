@@ -36,7 +36,7 @@ namespace XUnitTests.TaxiDataProviderTests
         }
 
         [Fact]
-        public void ShouldGetIt()
+        public void ShouldGetId()
         {
             int expected = 1;
             Assert.Equal(expected, _fixture.Sut.Id);
@@ -84,6 +84,34 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.Equal(expected, _fixture.Sut.PassengerId);
         }
 
+        [Fact]
+        public void EqualsShouldReturnTrue()
+        {
+            var dateTime = DateTime.Now.AddDays(2);
+            Order o1 = new Order() {Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+            Order o2 = new Order() { Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+
+            Assert.True(o1.Equals(o2));
+            Assert.True(o1.Equals(o1));
+            Assert.True(o2.Equals(o1));
+            Assert.True(o2.Equals(o2));
+        }
+
+        [Fact]
+        public void EqualsShouldReturnFalse()
+        {
+            var dateTime = DateTime.Now.AddDays(2);
+            Order o1 = new Order() { Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+            Order o2 = new Order() { Address = "Peremogy, 51", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+            Order o3 = new Order() { Address = "Peremogy, 50", Location = "50.456477, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+            Order o4 = new Order() { Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime.AddMinutes(1), PassengerId = 1 };
+            Order o5 = new Order() { Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 2 };
+
+            Assert.False(o1.Equals(o2));
+            Assert.False(o1.Equals(o3));
+            Assert.False(o1.Equals(o4));
+            Assert.False(o1.Equals(o5));
+        }
 
 
     }
