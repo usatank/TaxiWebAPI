@@ -70,7 +70,7 @@ namespace XUnitTests.TaxiDataProviderTests
 
         [Fact]
         public void GetAllCarsShouldReturnCollection()
-        {            
+        {
             _fixture.Sut.AddCar(new Car() { Brand = "Volkswagen", Model = "Polo Sedan", Number = "AA4512AT" });
             var cars = _fixture.Sut.GetAllCars();
             Assert.NotNull(cars);
@@ -94,9 +94,9 @@ namespace XUnitTests.TaxiDataProviderTests
             int carId = carExpected.Id;
             var carActual = _fixture.Sut.GetCar(carId);
             Assert.NotNull(carActual);
-            Assert.IsType<Car>(carActual);            
+            Assert.IsType<Car>(carActual);
             Assert.True(carExpected.Equals(carActual));
-            
+
         }
 
         [Fact]
@@ -123,7 +123,18 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.Null(_fixture.SutWithoutConnectionString.GetAllDrivers());
         }
 
-        
+
+        [Fact]
+        public void GetAllDriversShouldReturnCollection()
+        {
+            _fixture.Sut.AddDriver(new Driver() { FirstName = "Oleksandr", LastName = "Sidorov", HomeAddress = "Peremogy, 50", PhoneNumber = "0507854312" });
+            var drivers = _fixture.Sut.GetAllDrivers();
+            Assert.NotNull(drivers);
+            Assert.NotEmpty(drivers);
+            Assert.IsType<List<Driver>>(drivers);
+        }
+
+
 
         [Fact]
         public void GetDriverShouldReturnNull()
@@ -131,6 +142,20 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.Null(_fixture.SutWithoutConnectionString.GetDriver(1));
             Assert.Null(_fixture.Sut.GetDriver(-2));
             Assert.Null(_fixture.Sut.GetDriver(int.MaxValue));
+        }
+
+        [Fact]
+        public void GetDriverShouldReturnDriver()
+        {
+            Driver driverExpected = new Driver() { FirstName = "Oleksandr", LastName = "Sidorov", HomeAddress = "Peremogy, 50", PhoneNumber = "0507854312" };
+            _fixture.Sut.AddDriver(driverExpected);
+            int driverId = driverExpected.Id;
+            var driverActual = _fixture.Sut.GetDriver(driverId);
+
+            Assert.NotNull(driverActual);
+            Assert.IsType<Driver>(driverActual);
+            Assert.True(driverExpected.Equals(driverActual));
+
         }
 
         [Fact]
@@ -155,12 +180,39 @@ namespace XUnitTests.TaxiDataProviderTests
         }
 
         [Fact]
+        public void GetAllPassengersShouldReturnCollection()
+        {
+            _fixture.Sut.AddPassenger(new Passenger() { Name = "Oleg", PhoneNumber = "0663575855" });
+            var passengers = _fixture.Sut.GetAllPassengers();
+
+            Assert.NotNull(passengers);
+            Assert.NotEmpty(passengers);
+            Assert.IsType<List<Passenger>>(passengers);
+
+        }
+
+        [Fact]
         public void GetPassengerShouldReturnNull()
         {
             Assert.Null(_fixture.SutWithoutConnectionString.GetPassenger(1));
             Assert.Null(_fixture.Sut.GetPassenger(-10));
             Assert.Null(_fixture.Sut.GetPassenger(int.MaxValue));
         }
+
+        [Fact]
+        public void GetPassengerShouldReturnPassenger()
+        {
+            Passenger passengerExpected = new Passenger() { Name = "Oleg", PhoneNumber = "0663575855" };
+            _fixture.Sut.AddPassenger(passengerExpected);
+            int passengerId = passengerExpected.Id;
+
+            var passengerActual = _fixture.Sut.GetPassenger(passengerId);
+
+            Assert.NotNull(passengerActual);
+            Assert.IsType<Passenger>(passengerActual);
+            Assert.True(passengerExpected.Equals(passengerActual));
+        }
+
 
         [Fact]
         public void AddOrderShouldReturnTrue()
@@ -185,11 +237,34 @@ namespace XUnitTests.TaxiDataProviderTests
         }
 
         [Fact]
+        public void GetAllOrdersShouldReturnCollection()
+        {
+            _fixture.Sut.AddOrder(new Order() { Address = "Golosyivskiy, 120B", Location = "50.386157, 30.484798", DateAndTime = DateTime.Now.AddHours(1), PassengerId = 3 });
+            var orders = _fixture.Sut.GetAllOrders();
+            Assert.NotNull(orders);
+            Assert.NotEmpty(orders);
+            Assert.IsType<List<Order>>(orders);
+        }
+
+        [Fact]
         public void GetOrderShouldReturnNull()
         {
             Assert.Null(_fixture.SutWithoutConnectionString.GetOrder(1));
             Assert.Null(_fixture.Sut.GetOrder(-10));
             Assert.Null(_fixture.Sut.GetOrder(int.MaxValue));
+        }
+
+        [Fact]
+        public void GetOrderShouldReturnOrder()
+        {
+            Order orderExpected = new Order() { Address = "Golosyivskiy, 120B", Location = "50.386157, 30.484798", DateAndTime = DateTime.Now.AddHours(1), PassengerId = 3 };
+            _fixture.Sut.AddOrder(orderExpected);
+            int orderId = orderExpected.Id;
+            var orderActual = _fixture.Sut.GetOrder(orderId);
+
+            Assert.NotNull(orderActual);
+            Assert.IsType<Order>(orderActual);
+            Assert.True(orderExpected.Equals(orderActual));
         }
 
         [Fact]
@@ -215,11 +290,36 @@ namespace XUnitTests.TaxiDataProviderTests
         }
 
         [Fact]
+        public void GetAllDriversInCarsShouldReturnCollection()
+        {
+            _fixture.Sut.AddDriverInCar(new DriverInCar() { CarId = 3, DriverId = 3, Address = "Akademika Glushkova 12A", Location = "50.374211, 30.462582" });
+            var drivers = _fixture.Sut.GetAllDriversInCars();
+
+            Assert.NotNull(drivers);
+            Assert.NotEmpty(drivers);
+            Assert.IsType<List<DriverInCar>>(drivers);
+        }
+
+        [Fact]
         public void GetDriverInCarShouldReturnNull()
         {
             Assert.Null(_fixture.SutWithoutConnectionString.GetDriverInCar(1));
             Assert.Null(_fixture.Sut.GetDriverInCar(-10));
             Assert.Null(_fixture.Sut.GetDriverInCar(int.MaxValue));
         }
+
+        [Fact]
+        public void GetDriverInCarsShouldReturnDriverInCar()
+        {
+            DriverInCar dICExpected = new DriverInCar() { CarId = 3, DriverId = 3, Address = "Akademika Glushkova 12A", Location = "50.374211, 30.462582" };
+            _fixture.Sut.AddDriverInCar(dICExpected);
+            int dICId = dICExpected.Id;
+            var dICActual = _fixture.Sut.GetDriverInCar(dICId);
+
+            Assert.NotNull(dICActual);
+            Assert.IsType<DriverInCar>(dICActual);
+            Assert.True(dICExpected.Equals(dICActual));
+        }
+
     }
 }

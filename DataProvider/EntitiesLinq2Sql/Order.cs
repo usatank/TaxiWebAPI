@@ -65,7 +65,8 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
         public bool Equals(Order order2)
         {
             return (this.Id == order2.Id &&
-                    this.DateAndTime == order2.DateAndTime &&
+                    this.DateAndTime.ToShortDateString()  == order2.DateAndTime.ToShortDateString() &&
+                    this.DateAndTime.ToShortTimeString() == order2.DateAndTime.ToShortTimeString() &&
                     this.Location == order2.Location &&
                     this.Address == order2.Address &&
                     this.PassengerId == order2.PassengerId);
