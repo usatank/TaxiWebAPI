@@ -10,16 +10,10 @@
     {         
         public int Id { get; }
 
-        [Required]
-        [StringLength(50)]
         public string Brand { get; set; }
 
-        [Required]
-        [StringLength(50)]
         public string Model { get; set; }
 
-        [Required]
-        [StringLength(10)]
         public string Number { get; set; }
     }
 }

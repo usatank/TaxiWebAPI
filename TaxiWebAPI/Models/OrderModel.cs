@@ -11,13 +11,10 @@ namespace TaxiWebAPI.Models
         public int Id { get; }
 
 
-        [Required]
         public string Address { get; set; }
 
-        [Required]
         public string Location { get; set; }
 
-        [Required]
         public DateTime DateAndTime { get; set; }
 
         //foreign key

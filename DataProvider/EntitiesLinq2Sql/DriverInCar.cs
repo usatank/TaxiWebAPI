@@ -55,6 +55,10 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
             set { this._location = value; }
         }
 
+        public Driver Driver { get; set; }
+
+        public Car Car { get; set; }
+
         //for testing purposes
         public DriverInCar()
         {
@@ -67,7 +71,9 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
                     this.CarId == driverInCar2.CarId &&
                     this.DriverId == driverInCar2.DriverId &&
                     this.Address == driverInCar2.Address &&
-                    this.Location == driverInCar2.Location);
+                    this.Location == driverInCar2.Location && 
+                    this.Driver == driverInCar2.Driver &&
+                    this.Car == driverInCar2.Car);
         }
 
         public void Dispose()

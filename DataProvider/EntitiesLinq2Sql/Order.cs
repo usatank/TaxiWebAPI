@@ -54,7 +54,7 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
 
         //check - whether it is necessary?
-        //public Passenger Passenger { get; set; }
+        public Passenger Passenger { get; set; }
         
             //for testing purposes
         public Order()
@@ -69,7 +69,8 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
                     this.DateAndTime.ToShortTimeString() == order2.DateAndTime.ToShortTimeString() &&
                     this.Location == order2.Location &&
                     this.Address == order2.Address &&
-                    this.PassengerId == order2.PassengerId);
+                    this.PassengerId == order2.PassengerId &&
+                    this.Passenger.Equals(order2.Passenger));
         }
 
         public void Dispose()

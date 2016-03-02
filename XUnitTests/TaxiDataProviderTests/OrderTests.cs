@@ -113,6 +113,19 @@ namespace XUnitTests.TaxiDataProviderTests
             Assert.False(o1.Equals(o5));
         }
 
+        [Fact]
+        public void ShouldGetSetPasseger()
+        {
+            var dateTime = DateTime.Now.AddHours(2);
+            Order order = new Order() { Address = "Peremogy, 50", Location = "50.456487, 30.444342", DateAndTime = dateTime, PassengerId = 1 };
+            Passenger pExpected = new Passenger() { Name = "Andrii", PhoneNumber = "0991234567"};
+            order.Passenger = pExpected;
+            Passenger pActual = order.Passenger;
+
+            Assert.True(pExpected.Equals(pActual));
+
+        }
+
 
     }
 }

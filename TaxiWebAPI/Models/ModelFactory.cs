@@ -48,7 +48,7 @@ namespace TaxiWebAPI.Models
                 Address = order.Address,
                 DateAndTime = order.DateAndTime,
                 Location = order.Location,
-                //Passenger = Create(order.Passenger)
+                Passenger = Create(order.Passenger)
             };
 
         }
@@ -59,6 +59,19 @@ namespace TaxiWebAPI.Models
             {
                 Name = passenger.Name,
                 PhoneNumber = passenger.PhoneNumber
+            };
+        }
+
+        public DriverInCarModel Create (DriverInCar dIC)
+        {
+            return new DriverInCarModel()
+            {
+                Address = dIC.Address,
+                Car = Create(dIC.Car),
+                CarId = dIC.CarId,
+                Driver = Create(dIC.Driver),
+                DriverId = dIC.DriverId,
+                Location = dIC.Location
             };
         }
     }

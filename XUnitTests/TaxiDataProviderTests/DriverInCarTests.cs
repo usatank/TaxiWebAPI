@@ -80,6 +80,26 @@ namespace XUnitTests.TaxiDataProviderTests
         }
 
         [Fact]
+        public void ShouldGetSetCar()
+        {
+            Car carExpected = new Car() { Brand = "Lifan", Model = "620", Number = "AA2345CH" };
+            _fixture.Sut.Car = carExpected;
+            Car carActual = _fixture.Sut.Car;
+
+            Assert.True(carExpected.Equals(carActual));
+        }
+
+        [Fact]
+        public void ShouldGetSetDriver()
+        {
+            Driver dExpected = new Driver() { FirstName = "Andrii", LastName = "Ivanov", HomeAddress = "Lugova, 12", PhoneNumber = "0661234567" };
+            _fixture.Sut.Driver = dExpected;
+            Driver dActual = _fixture.Sut.Driver;
+
+            Assert.True(dExpected.Equals(dActual));
+        }
+
+        [Fact]
         public void EqualsShouldReturnTrue()
         {
             DriverInCar driverInCar1 = new DriverInCar() { Address = "Peremogy, 50", CarId = 1, DriverId = 1, Location = "50.456487, 30.444342" };

@@ -15,16 +15,12 @@ namespace TaxiWebAPI.Models
 
         public int Id { get; }
 
-        [Required]
         public string FirstName { get; set; }
 
-        [Required]
         public string LastName { get; set; }
 
-        [Required]
         public string PhoneNumber { get; set; }
 
-        [Required]
         public string HomeAddress { get; set; }
 
     }
