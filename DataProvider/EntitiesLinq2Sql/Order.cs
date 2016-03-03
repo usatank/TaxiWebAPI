@@ -64,13 +64,24 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
         public bool Equals(Order order2)
         {
+            if (order2 == null)
+                return false;
+
+            bool passengerEquals = false;
+            if (this.Passenger == null && order2.Passenger == null)
+                passengerEquals = true;
+            else
+            {
+                if (this.Passenger != null)
+                    passengerEquals = this.Passenger.Equals(order2.Passenger);    
+            }
             return (this.Id == order2.Id &&
                     this.DateAndTime.ToShortDateString()  == order2.DateAndTime.ToShortDateString() &&
                     this.DateAndTime.ToShortTimeString() == order2.DateAndTime.ToShortTimeString() &&
                     this.Location == order2.Location &&
                     this.Address == order2.Address &&
                     this.PassengerId == order2.PassengerId &&
-                    this.Passenger.Equals(order2.Passenger));
+                    passengerEquals);
         }
 
         public void Dispose()

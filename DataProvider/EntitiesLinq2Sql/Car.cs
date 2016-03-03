@@ -44,7 +44,7 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
         public string Number
         {
             get { return this._number; }
-            set { this._number = value.Trim(' '); }
+            set { this._number = value; }
         }
 
         //for testing purposes
@@ -55,6 +55,9 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
         public bool Equals(Car car2)
         {
+            if (car2 == null)
+                return false;
+
             return (this.Id == car2.Id &&
                     this.Brand == car2.Brand &&
                     this.Model == car2.Model &&

@@ -67,13 +67,34 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
         public bool Equals(DriverInCar driverInCar2)
         {
+            if (driverInCar2 == null)
+                return false;
+
+            bool driverEquals = false;
+            if (this.Driver == null && driverInCar2.Driver == null)
+                driverEquals = true;
+            else
+            {
+                if (this.Driver != null)
+                    driverEquals = this.Driver.Equals(driverInCar2.Driver);
+            }
+
+            bool carEquals = false;
+            if (this.Car == null && driverInCar2.Driver == null)
+                carEquals = true;
+            else
+            {
+                if (this.Car != null)
+                    carEquals = this.Car.Equals(driverInCar2.Car);
+            }
+
             return (this.Id == driverInCar2.Id &&
                     this.CarId == driverInCar2.CarId &&
                     this.DriverId == driverInCar2.DriverId &&
                     this.Address == driverInCar2.Address &&
                     this.Location == driverInCar2.Location && 
-                    this.Driver == driverInCar2.Driver &&
-                    this.Car == driverInCar2.Car);
+                    driverEquals &&
+                    carEquals);
         }
 
         public void Dispose()

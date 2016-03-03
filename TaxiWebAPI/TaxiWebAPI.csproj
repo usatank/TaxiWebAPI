@@ -217,6 +217,10 @@
       <Project>{bbe0cd62-21c5-499e-925f-331cc8ed86e4}</Project>
       <Name>TaxiDataProvider</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Utils.csproj">
+      <Project>{215b009f-80e4-477d-a145-9907fa635ad4}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

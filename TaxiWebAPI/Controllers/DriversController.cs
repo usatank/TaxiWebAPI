@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using TaxiDataProvider;
 using TaxiDataProvider.EntitiesLinq2Sql;
+using TaxiWebAPI.Models;
 
 namespace TaxiWebAPI.Controllers
 {
@@ -18,15 +19,19 @@ namespace TaxiWebAPI.Controllers
         }
 
         [Route("", Name = "Drivers")]
-        public IEnumerable<Driver> Get()
+        public IEnumerable<DriverModel> Get()
         {
-            return Repository.GetAllDrivers();
+            var query = Repository.GetAllDrivers();
+            var result = query.Select(d => ModelFactory.Create(d));
+
+            return result;
+
         }
 
         [Route("{driverid}", Name = "Driver")]
-        public Driver Get(int driverid)
+        public DriverModel Get(int driverid)
         {
-            return Repository.GetDriver(driverid);
+            return ModelFactory.Create(Repository.GetDriver(driverid));
         }
     }
 }

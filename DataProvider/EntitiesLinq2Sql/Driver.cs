@@ -63,6 +63,9 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
         public bool Equals(Driver driver2)
         {
+            if (driver2 == null)
+                return false;
+
             return (this.Id == driver2.Id &&
                    this.FirstName == driver2.FirstName &&
                    this.LastName == driver2.LastName &&

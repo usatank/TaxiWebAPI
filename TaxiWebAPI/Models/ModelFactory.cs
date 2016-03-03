@@ -20,59 +20,44 @@ namespace TaxiWebAPI.Models
 
         public CarModel Create(Car car)
         {
-            return new CarModel()
-            {
-                Brand = car.Brand,
-                Model = car.Model,
-                Number = car.Number
-            
-            };
+            if (car == null)
+                return null;
+
+            return new CarModel(car);
+
         }
 
         public DriverModel Create(Driver driver)
         {
-            return new DriverModel()
-            {
-                FirstName = driver.FirstName,
-                HomeAddress = driver.HomeAddress,
-                LastName = driver.LastName,
-                PhoneNumber = driver.PhoneNumber
-            
-            };
+            if (driver == null)
+                return null;
+
+            return new DriverModel(driver);
         }
 
         public OrderModel Create(Order order)
         {
-            return new OrderModel()
-            {
-                Address = order.Address,
-                DateAndTime = order.DateAndTime,
-                Location = order.Location,
-                Passenger = Create(order.Passenger)
-            };
+            if (order == null)
+                return null;
+
+            return new OrderModel(order);
 
         }
 
         public PassengerModel Create(Passenger passenger)
         {
-            return new PassengerModel()
-            {
-                Name = passenger.Name,
-                PhoneNumber = passenger.PhoneNumber
-            };
+            if (passenger == null)
+                return null;
+
+            return new PassengerModel(passenger);
         }
 
         public DriverInCarModel Create (DriverInCar dIC)
         {
-            return new DriverInCarModel()
-            {
-                Address = dIC.Address,
-                Car = Create(dIC.Car),
-                CarId = dIC.CarId,
-                Driver = Create(dIC.Driver),
-                DriverId = dIC.DriverId,
-                Location = dIC.Location
-            };
+            if (dIC == null)
+                return null;
+
+            return new DriverInCarModel(dIC);
         }
     }
 }

@@ -59,6 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModelsTests\CarModelTests.cs" />
+    <Compile Include="ModelsTests\DriverInCarModelTests.cs" />
+    <Compile Include="ModelsTests\DriverModelTests.cs" />
+    <Compile Include="ModelsTests\OrderModelTests.cs" />
+    <Compile Include="ModelsTests\PassengerModelTests.cs" />
     <Compile Include="TaxiDataProviderTests\CarTests.cs" />
     <Compile Include="TaxiDataProviderTests\DriverInCarTests.cs" />
     <Compile Include="TaxiDataProviderTests\DriverTests.cs" />
