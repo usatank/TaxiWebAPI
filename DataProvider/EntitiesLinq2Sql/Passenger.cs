@@ -42,8 +42,12 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
 
         //for testing purposes
         public Passenger()
+        {          
+        }
+
+        public Passenger(int passengerId)
         {
-            Id = 1;
+            Id = passengerId;
         }
 
         public bool Equals(Passenger passenger2)

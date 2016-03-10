@@ -32,7 +32,7 @@ namespace TaxiDataProvider
 
         }
 
-        public bool AddCar(Car car)
+        public virtual bool AddCar(Car car)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || Assert.IsNull(car))
                 return false;
@@ -57,7 +57,7 @@ namespace TaxiDataProvider
 
         }
 
-        public List<Car> GetAllCars()
+        public virtual List<Car> GetAllCars()
         {
 
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString))
@@ -81,7 +81,7 @@ namespace TaxiDataProvider
 
         }
 
-        public Car GetCar(int id)
+        public virtual Car GetCar(int id)
         {
 
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || !Assert.IsPositive(id))
@@ -105,7 +105,7 @@ namespace TaxiDataProvider
 
         }
 
-        public List<Driver> GetAllDrivers()
+        public virtual List<Driver> GetAllDrivers()
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString))
                 return null;
@@ -127,7 +127,7 @@ namespace TaxiDataProvider
 
         }
 
-        public Driver GetDriver(int id)
+        public virtual Driver GetDriver(int id)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || !Assert.IsPositive(id))
                 return null;
@@ -147,7 +147,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public bool AddDriver(Driver driver)
+        public virtual bool AddDriver(Driver driver)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || Assert.IsNull(driver))
                 return false;
@@ -170,7 +170,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public bool AddPassenger(Passenger passenger)
+        public virtual bool AddPassenger(Passenger passenger)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || Assert.IsNull(passenger))
                 return false;
@@ -192,7 +192,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public List<Passenger> GetAllPassengers()
+        public virtual List<Passenger> GetAllPassengers()
         {            
 
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString))
@@ -213,7 +213,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public Passenger GetPassenger(int id)
+        public virtual Passenger GetPassenger(int id)
         {          
 
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || !Assert.IsPositive(id))
@@ -235,7 +235,7 @@ namespace TaxiDataProvider
 
         }
 
-        public bool AddOrder(Order order)
+        public virtual bool AddOrder(Order order)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || Assert.IsNull(order))
                 return false;
@@ -257,7 +257,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public List<Order> GetAllOrders()
+        public virtual List<Order> GetAllOrders()
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString))
                 return null;
@@ -278,7 +278,7 @@ namespace TaxiDataProvider
          
         }
 
-        public Order GetOrder(int id)
+        public virtual Order GetOrder(int id)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || !Assert.IsPositive(id))
                 return null;
@@ -300,7 +300,7 @@ namespace TaxiDataProvider
          
         }
 
-        public List<DriverInCar> GetAllDriversInCars()
+        public virtual List<DriverInCar> GetAllDriversInCars()
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString))
                 return null;
@@ -321,7 +321,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public DriverInCar GetDriverInCar(int id)
+        public virtual DriverInCar GetDriverInCar(int id)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || !Assert.IsPositive(id))
                 return null;
@@ -341,7 +341,7 @@ namespace TaxiDataProvider
             }
         }
 
-        public bool AddDriverInCar(DriverInCar driverInCar)
+        public virtual bool AddDriverInCar(DriverInCar driverInCar)
         {
             if (Assert.IsNullOrEmtpyOrWhitespace(_connectionString) || Assert.IsNull(driverInCar))
                 return false;

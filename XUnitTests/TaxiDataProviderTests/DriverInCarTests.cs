@@ -38,6 +38,7 @@ namespace XUnitTests.TaxiDataProviderTests
         public void SholdGetId()
         {
             int expected = 1;
+            _fixture.Sut = new DriverInCar(expected);
             Assert.Equal(expected, _fixture.Sut.Id);
         }
 

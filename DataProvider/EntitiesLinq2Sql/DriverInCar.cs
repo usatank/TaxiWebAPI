@@ -58,11 +58,15 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
         public Driver Driver { get; set; }
 
         public Car Car { get; set; }
-
-        //for testing purposes
+               
         public DriverInCar()
         {
-            Id = 1;
+           
+        }
+
+        public DriverInCar(int dICId)
+        {
+            Id = dICId;
         }
 
         public bool Equals(DriverInCar driverInCar2)

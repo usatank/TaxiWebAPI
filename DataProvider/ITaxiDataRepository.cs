@@ -7,7 +7,7 @@ using TaxiDataProvider.EntitiesLinq2Sql;
 
 namespace TaxiDataProvider
 {
-    public interface ITaxiDataRepository
+    public interface ITaxiDataRepository : IDisposable
     {
         List<Car> GetAllCars();
 
@@ -38,6 +38,7 @@ namespace TaxiDataProvider
         DriverInCar GetDriverInCar(int id);
 
         bool AddDriverInCar(DriverInCar driverInCar);
+        
 
     }
 }

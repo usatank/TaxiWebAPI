@@ -54,11 +54,15 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
             get { return this._homeAddress; }
             set { this._homeAddress = value;  }
         }
-
-        //for testing purposes
+                
         public Driver()
         {
-            Id = 1;
+           
+        }
+
+        public Driver(int driverId)
+        {
+            Id = driverId;
         }
 
         public bool Equals(Driver driver2)

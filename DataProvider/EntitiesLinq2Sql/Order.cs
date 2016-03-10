@@ -58,8 +58,12 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
         
             //for testing purposes
         public Order()
+        {            
+        }
+
+        public Order(int orderId)
         {
-            Id = 1;
+            Id = orderId;
         }
 
         public bool Equals(Order order2)

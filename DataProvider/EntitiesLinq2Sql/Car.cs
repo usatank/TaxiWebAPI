@@ -47,10 +47,14 @@ namespace TaxiDataProvider.EntitiesLinq2Sql
             set { this._number = value; }
         }
 
-        //for testing purposes
         public Car()
         {
-            Id = 1;
+            
+        }
+
+        public Car(int idValue)
+        {
+            Id = idValue;
         }
 
         public bool Equals(Car car2)

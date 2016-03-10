@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Rhino.Mocks.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +72,7 @@
     <Compile Include="TaxiDataProviderTests\DriverInCarTests.cs" />
     <Compile Include="TaxiDataProviderTests\DriverTests.cs" />
     <Compile Include="TaxiDataProviderTests\Linq2SqlTaxiDataRepositoryTests.cs" />
+    <Compile Include="TaxiDataProviderTests\Linq2SqlTaxiDataRepositoryTestsWithMocks.cs" />
     <Compile Include="TaxiDataProviderTests\OrderTests.cs" />
     <Compile Include="TaxiDataProviderTests\PassengerTests.cs" />
     <Compile Include="UtilsTests\AssertTests.cs" />

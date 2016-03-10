@@ -39,6 +39,7 @@ namespace XUnitTests.TaxiDataProviderTests
         public void ShouldGetId()
         {
             int expected = 1;
+            _fixture.Sut = new Driver(expected);
             Assert.Equal(expected, _fixture.Sut.Id);
         }
 
