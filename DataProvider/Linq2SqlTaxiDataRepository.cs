@@ -91,7 +91,7 @@ namespace TaxiDataProvider
             {
                 try
                 {
-                    Car car = taxiDatabaseContext.GetTable<Car>().Where<Car>(c => c.Id == id).First();
+                    Car car = taxiDatabaseContext.GetTable<Car>().First(c => c.Id == id);
                     return car;
                 }
                 catch (Exception exc)
@@ -136,7 +136,7 @@ namespace TaxiDataProvider
             {
                 try
                 {
-                    Driver driver = taxiDataBaseContext.GetTable<Driver>().Where<Driver>(d => d.Id == id).First();
+                    Driver driver = taxiDataBaseContext.GetTable<Driver>().First(d => d.Id == id);
                     return driver;
                 }
                 catch (Exception exc)
@@ -223,7 +223,7 @@ namespace TaxiDataProvider
             {
                 try
                 {
-                    Passenger passenger = taxiDataBaseContext.GetTable<Passenger>().Where<Passenger>(p => p.Id == id).First<Passenger>();
+                    Passenger passenger = taxiDataBaseContext.GetTable<Passenger>().First<Passenger>(p => p.Id == id);
                     return passenger;
                 }
                 catch (Exception exc)
@@ -267,6 +267,7 @@ namespace TaxiDataProvider
                 try
                 {
                     List<Order> orders = taxiDataBaseContext.GetTable<Order>().ToList<Order>();
+                    orders.ForEach(o => o.Passenger = GetPassenger(o.PassengerId));
                     return orders;
                 }
                 catch (Exception exc)
@@ -287,7 +288,8 @@ namespace TaxiDataProvider
             {
                 try
                 {
-                    Order order = taxiDataBaseContext.GetTable<Order>().Where<Order>(o => o.Id == id).First<Order>();
+                    Order order = taxiDataBaseContext.GetTable<Order>().First<Order>(o => o.Id == id);
+                    order.Passenger = GetPassenger(order.PassengerId);
                     return order;
                 }
                 catch (Exception exc)
@@ -310,6 +312,13 @@ namespace TaxiDataProvider
                 try
                 {
                     List<DriverInCar> driversInCars = taxiDataBaseContext.GetTable<DriverInCar>().ToList<DriverInCar>();
+                    driversInCars.ForEach(dIC =>
+                    {
+                        dIC.Car = GetCar(dIC.CarId);
+                        dIC.Driver = GetDriver(dIC.DriverId);
+
+                    });
+
                     return driversInCars;
                 }
                 catch (Exception exc)
@@ -330,7 +339,9 @@ namespace TaxiDataProvider
             {
                 try
                 {
-                    DriverInCar driverInCar = taxiDataBaseContext.GetTable<DriverInCar>().Where<DriverInCar>(d => d.Id == id).First<DriverInCar>();
+                    DriverInCar driverInCar = taxiDataBaseContext.GetTable<DriverInCar>().First<DriverInCar>(d => d.Id == id);
+                    driverInCar.Car = GetCar(driverInCar.CarId);
+                    driverInCar.Driver = GetDriver(driverInCar.DriverId);
                     return driverInCar;
                 }
                 catch (Exception exc)
